@@ -35,6 +35,7 @@ cd tempdir || exit
 
 # Stop and remove existing container if it exists
 if [ "$(docker ps -q -f name=samplerunning)" ]; then
+    echo "Stopping and removing existing container named 'samplerunning'..."
     docker stop samplerunning
     docker rm samplerunning
 fi
@@ -46,4 +47,4 @@ echo "Running Docker container..."
 docker run -t -d -p 5050:5050 --name samplerunning sampleapp
 
 echo "Listing Docker containers..."
-docker ps -a
+docker ps -a  # List all Docker containers
